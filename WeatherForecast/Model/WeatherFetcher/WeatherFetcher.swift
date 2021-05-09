@@ -17,7 +17,7 @@ struct API {
     static let scheme: String = "https"
     static let host: String = "api.openweathermap.org"
     static let path: String = "/data/2.5"
-    static let key = "7e6b02c7d7940fd34fe5b832b42d648e"
+    static let key = weatherMapAPIKey
 }
 
 struct WeatherFetcher {

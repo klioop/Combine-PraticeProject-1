@@ -21,6 +21,7 @@
 		31AEFFA02647BEBE0054EEC5 /* WeatherViewListRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEFF9F2647BEBE0054EEC5 /* WeatherViewListRowModel.swift */; };
 		31AEFFA42647C3320054EEC5 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEFFA32647C3320054EEC5 /* DateFormatter.swift */; };
 		31AEFFA62647D25D0054EEC5 /* WeeklyWeatherListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEFFA52647D25D0054EEC5 /* WeeklyWeatherListRowView.swift */; };
+		31AEFFAC264810720054EEC5 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AEFFAB264810720054EEC5 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		31AEFF9F2647BEBE0054EEC5 /* WeatherViewListRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewListRowModel.swift; sourceTree = "<group>"; };
 		31AEFFA32647C3320054EEC5 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		31AEFFA52647D25D0054EEC5 /* WeeklyWeatherListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherListRowView.swift; sourceTree = "<group>"; };
+		31AEFFAB264810720054EEC5 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		31AEFFA12647C31D0054EEC5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				31AEFFA726480F350054EEC5 /* Secret */,
 				31AEFFA22647C3250054EEC5 /* Formatter */,
 				31AEFF942647A9660054EEC5 /* Array+Extension */,
 			);
@@ -224,6 +227,14 @@
 				31AEFFA32647C3320054EEC5 /* DateFormatter.swift */,
 			);
 			path = Formatter;
+			sourceTree = "<group>";
+		};
+		31AEFFA726480F350054EEC5 /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				31AEFFAB264810720054EEC5 /* APIKey.swift */,
+			);
+			path = Secret;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +372,7 @@
 				31AEFF9A2647ADF40054EEC5 /* WeatherFetcher.swift in Sources */,
 				31AEFF9C2647B21C0054EEC5 /* WeatherFetchError.swift in Sources */,
 				31AEFF9E2647BC460054EEC5 /* WeeklyWeatherViewModel.swift in Sources */,
+				31AEFFAC264810720054EEC5 /* APIKey.swift in Sources */,
 				31AEFF632647A0070054EEC5 /* WeatherForecastApp.swift in Sources */,
 				31AEFF932647A9130054EEC5 /* APIResponse.swift in Sources */,
 				31AEFFA62647D25D0054EEC5 /* WeeklyWeatherListRowView.swift in Sources */,
