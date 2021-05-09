@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum WeatherFetchError: Error {
+    case parsingError(description: String)
+    case networkError(description: String)
+}

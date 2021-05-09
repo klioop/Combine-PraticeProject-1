@@ -6,11 +6,20 @@
 //
 
 import SwiftUI
+import Combine
 
 struct WeeklyWeatherView: View {
+    
+    var temp = WeatherFetcher()
+    
+    init() {
+        
+    }
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
+        
     }
 }
 
