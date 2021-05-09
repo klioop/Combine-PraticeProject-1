@@ -16,7 +16,7 @@ protocol WeatherFetchable {
 struct API {
     static let scheme: String = "https"
     static let host: String = "api.openweathermap.org"
-    static let path: String = "data/2.5"
+    static let path: String = "/data/2.5"
     static let key = "7e6b02c7d7940fd34fe5b832b42d648e"
 }
 
@@ -60,6 +60,7 @@ extension WeatherFetcher: WeatherFetchable {
     func forecast<T>(_ components: URLComponents) -> AnyPublisher<T, WeatherFetchError> where T: Decodable {
         guard let url = components.url else {
             let error = WeatherFetchError.networkError(description: "cannot create url")
+            print(error)
             
             return Fail(error: error).eraseToAnyPublisher()
         }
