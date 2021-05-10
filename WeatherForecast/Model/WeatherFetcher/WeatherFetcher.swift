@@ -10,6 +10,7 @@ import Combine
 
 protocol WeatherFetchable {
     func weeklyWeatherForecast(withCity city: String) -> AnyPublisher<WeeklyWeatherResponse, WeatherFetchError>
+    func currentWeather(withCity city: String) -> AnyPublisher<CurrentWeatherResponse, WeatherFetchError>
 }
 
 
@@ -47,9 +48,30 @@ extension WeatherFetcher {
         
         return components
     }
+    
+    func createCurrentWeatherURLComponents(withCity city: String) -> URLComponents {
+        var components: URLComponents = URLComponents()
+        
+        components.scheme = API.scheme
+        components.host = API.host
+        components.path = API.path + "/weather"
+        
+        components.queryItems = [
+            URLQueryItem(name: "q", value: city),
+            URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "APPID", value: API.key)
+        ]
+        
+        return components
+    }
 }
 
 extension WeatherFetcher: WeatherFetchable {
+    
+    func currentWeather(withCity city: String) -> AnyPublisher<CurrentWeatherResponse, WeatherFetchError> {
+        return forecast(createCurrentWeatherURLComponents(withCity: city))
+    }
+    
     
     func weeklyWeatherForecast(withCity city: String) -> AnyPublisher<WeeklyWeatherResponse, WeatherFetchError> {
         

@@ -19,12 +19,13 @@ class WeeklyWeatherViewModel: ObservableObject, Identifiable {
     init() {
         $city
             .dropFirst(1)
-            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue(label: "weather fetch"))
             .sink(receiveValue: { [unowned self] value in
                 self.fetchWeather(withCity: value)
             })
             .store(in: &disposables)
     }
+    
 }
 
 extension WeeklyWeatherViewModel {
@@ -33,7 +34,7 @@ extension WeeklyWeatherViewModel {
         weatherFetcher
             .weeklyWeatherForecast(withCity: city)
             .map{ responseData -> [WeatherViewListRowModel] in
-                print("First Fetched @@@@@@@@@@@@", responseData)
+//                print("First Fetched @@@@@@@@@@@@", responseData)
                 return responseData.list.map(WeatherViewListRowModel.init)
             }
             .map(Array.removeDuplicates)
@@ -49,5 +50,12 @@ extension WeeklyWeatherViewModel {
                 self.dataSourceForView = rowViewModelArray
             })
             .store(in: &disposables)
+    }
+}
+
+extension WeeklyWeatherViewModel {
+    
+    var currentWeatherView: CurrentWeatherView {
+        return NavigationDestinationBuilder.makeCurrentWeatherView(withCity: city) as! CurrentWeatherView
     }
 }
