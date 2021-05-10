@@ -54,11 +54,31 @@ struct WeeklyWeatherResponse: Decodable {
       case clouds = "Clouds"
       case rain = "Rain"
     }
-    
-    
-    
 }
 
 struct CurrentWeatherResponse: Decodable {
     
+    let coord: Coord
+    let main: Main
+    
+    struct Coord: Decodable {
+        let lon: Double
+        let lat: Double
+    }
+    
+    struct Main: Decodable {
+        
+        enum CodingKeys: String, CodingKey {
+            case temp, humidity
+            case feelsLike = "feels_like"
+            case tempMax = "temp_max"
+            case tempMin = "temp_min"
+        }
+        
+        let temp: Double
+        let feelsLike: Double
+        let tempMax: Double
+        let tempMin: Double
+        let humidity: Int
+    }
 }
