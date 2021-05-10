@@ -58,4 +58,5 @@ extension WeeklyWeatherViewModel {
     var currentWeatherView: CurrentWeatherView {
         return NavigationDestinationBuilder.makeCurrentWeatherView(withCity: city) as! CurrentWeatherView
     }
+    
 }

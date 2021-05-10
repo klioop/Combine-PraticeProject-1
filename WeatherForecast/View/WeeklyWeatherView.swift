@@ -23,7 +23,8 @@ struct WeeklyWeatherView: View {
                 if viewModel.dataSourceForView.isEmpty {
                     emptyView
                 } else {
-                    currentWeatherView
+//                    currentWeatherView
+                    currentWeatherView2
                     weatherListRowView
                 }
             }
@@ -47,16 +48,22 @@ extension WeeklyWeatherView {
         }
     }
     
-    var currentWeatherView: some View {
+//    var currentWeatherView: some View {
+//        Section{
+//            NavigationLink(destination: viewModel.currentWeatherView) {
+//                Text("\(viewModel.city) 지역의 현재 날씨")
+//                    .foregroundColor(.gray)
+//            }
+//        }
+//    }
+    
+    var currentWeatherView2: some View {
         Section{
-            NavigationLink(destination: viewModel.currentWeatherView) {
+            Navigator.navigate(.currentWeatherView(CurrentWeatherViewModel(city: viewModel.city))) {
                 Text("\(viewModel.city) 지역의 현재 날씨")
-                    .foregroundColor(.gray)
             }
         }
-        
     }
-    
     
     var weatherListRowView: some View {
         Section{
