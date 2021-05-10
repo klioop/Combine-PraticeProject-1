@@ -13,7 +13,7 @@ enum Route {
 
 struct Navigator {
     
-    @ViewBuilder static func navigate<V: View>(_ route: Route, content: () -> V) -> some View {
+    @ViewBuilder static func navigate<V>(_ route: Route, content: () -> V) -> some View where V: View {
         
         switch route {
         case .currentWeatherView(let viewModel):

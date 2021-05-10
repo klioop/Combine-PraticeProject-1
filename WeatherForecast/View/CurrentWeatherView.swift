@@ -14,11 +14,12 @@ struct CurrentWeatherView: View {
     var body: some View {
         
         List {
-         content()
-            .ignoresSafeArea(edges: .horizontal)
+            
+         currentWeatherRow()
             .onAppear{
                 viewModel.refresh()
             }
+            
         }
         .navigationBarTitle(Text("\(viewModel.city)"), displayMode: .inline)
         .listStyle(GroupedListStyle())
@@ -28,7 +29,7 @@ struct CurrentWeatherView: View {
 
 extension CurrentWeatherView {
     
-    @ViewBuilder func content() -> some View {
+    @ViewBuilder func currentWeatherRow() -> some View {
         
         if let dataSource = viewModel.dataSource {
             CurrentWeatherViewRow(viewModel: dataSource)
@@ -44,6 +45,7 @@ struct CurrentWeatherView_Previews: PreviewProvider {
     static var previews: some View {
         
         NavigationView{
+            
             CurrentWeatherView(viewModel: CurrentWeatherViewModel(city: "Seoul"))
             
         }
