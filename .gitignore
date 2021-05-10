@@ -92,8 +92,11 @@ iOSInjectionProject/
 
 APIKey.swift
 
-WeatherForecastTests/
-WeatherForecastUITests/
+WeatherForecastTests/WeatherForecastTests.swift
+WeatherForecastTests/Info.plist
+
+WeatherForecastUITests/WeatherForecastUITests.swift
+WeatherForecastUITests/info.plist
 
 ## Gcc Patch
 /*.gcno

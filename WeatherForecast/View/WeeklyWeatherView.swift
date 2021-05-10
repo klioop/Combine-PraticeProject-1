@@ -56,7 +56,6 @@ extension WeeklyWeatherView {
 //            }
 //        }
 //    }
-    
     var currentWeatherView2: some View {
         Section{
             Navigator.navigate(.currentWeatherView(CurrentWeatherViewModel(city: viewModel.city))) {
